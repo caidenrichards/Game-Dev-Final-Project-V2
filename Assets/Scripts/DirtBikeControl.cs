@@ -25,17 +25,22 @@ public class DirtBikeControl : MonoBehaviour
     void Update()
     {
         // Move vehicle forward
-        //horizontalInput = Input.GetAxis("Horizontal");
-        //verticalInput = Input.GetAxis("Vertical");
+        horizontalInput = Input.GetAxis("Horizontal");
+        verticalInput = Input.GetAxis("Vertical");
 
-        //transform.Translate(Vector3.right * Time.deltaTime * speed * verticalInput * -1);
-        //transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed * horizontalInput * -1);
-        //transform.Rotate(Vector3.forward, Time.deltaTime * horizontalInput * tiltSpeed);
-
-        if (Input.GetKey("a"))
+        if(verticalInput >= 0)
         {
-            transform.position = transform.position + turnSpeed;
+            transform.Translate(Vector3.right * Time.deltaTime * speed * 1 * -1);
+            //transform.Translate(Vector3.right * Time.deltaTime * speed * verticalInput * -1);
         }
+        
+        transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed * horizontalInput * 1);
+        transform.Rotate(Vector3.forward, Time.deltaTime * horizontalInput * tiltSpeed);
+
+        //if (Input.GetKey("a"))
+        //{
+        //    transform.position = transform.position + turnSpeed;
+        //}
 
         //if (Input.GetKey("w"))
         //{
